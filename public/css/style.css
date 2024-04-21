@@ -1,8 +1,22 @@
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
     header {
         height: 15vh;
         width: 100%;
+    }
+    .mobile-menu-icon {
+        width: 20%;
+        height: 40%;
+        align-self: center;
+    }
+    .header-img {
+        width: 4rem;
+        margin-left: 0.2rem;
+    }
+    .name-header {
+        font-size: 2rem;
+        margin-left: 0.2rem;
+        font-weight: 600;
     }
     form {
         height: 50%;
@@ -41,12 +55,94 @@
     .bigger-button-size {
         width: 80%;
     }
+    .big-purple-button {
+        width: 30%;
+        font-size: 0.8rem;
+        padding: 0.6rem;
+        margin: 0.4rem;
+    }
+    .default-nav-list {
+        display: none;
+    }
+    .displayed-races-single-container {
+        display: grid;
+        grid-template-columns: 40% 60%;;
+        grid-template-rows: 2fr 1fr 1fr;
+
+    }
+    .default-race-img { 
+        width: 100%;
+        height: 75%;
+        border-radius: 15px;
+    }
+    .filtres-races-calendar {
+        width: 90%;
+        text-align: left;
+    }
+    .gray-mobile-box {
+        background-color: #D9D9D9;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border-radius: 15px;
+    }
+    .race-details-small-icon {
+        margin-left: 0.8rem;
+        margin-top: 0.6rem;
+        width: 60%;
+        height: 50%;
+    }
+    .race-details-text {
+        margin-left: 0.8rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .default-smaller-header {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: left;
+        margin-left: 0.8rem;
+    }
+    .blue-button {
+        background-color: #56A9D8;
+        font-family: Raleway;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        padding: 0.4rem;
+        margin: 1rem;
+        align-self: center;
+        width: 45%;
+    }
+    .smaller-button {
+        width: 50%;
+        margin: 0;
+        margin-left: 2.5rem;
+    }
+
+
+    
 }
 
-@media (min-width: 701px) {
+@media (min-width: 801px) {
     
+    .header-img {
+        width: 5rem;
+        margin-left: 1rem;
+    }
+    .name-header {
+        font-size: 2.5rem;
+        margin-left: 0.5rem;
+        font-weight: 600;
+    }
     .mobile-additional-login-page {
         display: none;
+    }
+    .filtres-races-calendar {
+        width: 90%;
+        text-align: left;
     }
     .single-login-form {
         height: 75%;
@@ -65,6 +161,72 @@
     .single-login-form-2 {
         height: 85%;
     }
+    .mobile-menu-icon {
+        display: none;
+    }
+    .big-purple-button {
+        width: 30%;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+    .displayed-races-single-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 50vh;
+    }
+    .default-race-img {
+        width: 25%;
+        height: 90%;
+        border-radius: 15px;
+        justify-self: center;
+        margin: 0.8rem;
+    }
+    .light-gray-box-style {
+        background-color: #F3F2F2;
+        padding: 0.8rem;
+        border-radius: 15px;
+    }
+    .dark-gray-box-style{
+        background-color: #D9D9D9;
+        padding: 0.8rem;
+        border-radius: 15px;
+        margin: 0.8rem;
+    }
+    .race-details-small-icon {
+        margin-left: 1rem;
+        margin-top: 0.6rem;
+        width: 10%;
+    }
+    .race-details-text {
+        margin-left: 0.6rem;
+        margin-top: 1.5rem;
+        font-weight: 500;
+    }
+    .default-smaller-header {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: left;
+        margin-left: 0.4rem;
+    }
+    .blue-button {
+        background-color: #56A9D8;
+        font-family: Raleway;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        padding: 0.4rem;
+        margin: 1rem;
+        align-self: center;
+        width: 45%;
+    }
+    .smaller-button {
+        width: 20%;
+    }
+
 
 }
 
@@ -92,6 +254,7 @@ footer {
     align-items: center; 
     justify-content: center;
     height: 5vh;
+    width: 100%;
     font-size: 0.8rem;
     background-color: #D9D9D9;
     border-radius: 15px 15px 0px 0px;
@@ -106,24 +269,49 @@ input {
     border: 2px solid transparent;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-h1 {
-    font-size: 2.5rem;
-    margin-left: 0.5rem;
-    font-weight: 600;
+nav {
+    height: 15vh;
+    background-color: #F9B872;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 15px 15px;
+    padding: 0.8rem;
 }
-h2 {
+nav a {
+    text-decoration: none;
+    color: black;
+}
+nav a:hover, nav a:focus {
+    font-weight: 600;
+    text-decoration: underline;
+}
+.simple-login-header {
     font-size: 1.8rem;
     font-weight: 500;
     text-align: center;
 }
+.default-nav-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.default-nav-list ul {
+    display: flex; /* Use flexbox to align list items */
+    align-items: center;
+    list-style-type: none; /* Remove default list styles */
+    padding: 2rem;
+}
+
+.default-nav-list li {
+    margin-right: 1rem; /* Add spacing between list items */
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
 .simple-login-header {
     width: 100%; /* Ensure header takes 100% width */
     margin: 0; /* Remove any default margins */
     padding: 0; /* Remove any default padding */
-}
-.header-img {
-    width: 5rem;
-    margin-left: 1rem;
 }
 .login-icon {
     width: 15%;
@@ -140,19 +328,36 @@ h2 {
     background-color: white;
     border-radius: 15px;
 }
-/*look at this and input buttons to find common conditions*/
-.blue-button {
-    background-color: #56A9D8;
-    font-family: Raleway;
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    padding: 0.4rem;
-    margin: 1rem;
-    align-self: center;
-    width: 45%;
+.races-calendar-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+.box-filters-race-calendar {
+    display: flex;
+}
+.filters-races-calendar {
+    width: 90%;
+}
+.displayed-races-race-calendar {
+    width: 90%;
+}
+
+.race-details-container {
+    width: 50%;
+    display: flex;
+}
+/*look at this and input buttons to find common conditions*/
+
+.big-purple-button {
+    background-color: #B89EE1;
+    text-align: center;
+    font-family: Raleway;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 2px solid transparent;
+}
+
 
 
