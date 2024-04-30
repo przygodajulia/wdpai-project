@@ -1,3 +1,13 @@
+<?php
+// TODO -> when reading from db where should this part be placed?
+require_once __DIR__.'../../../index.php';
+$races = array(
+    new Race(1, "Roma-Ostia Half Marathon", "Rome", "2024.05.01", 50.00, "Description 1", "public/img/run1.jpeg"),
+    new Race(2, "Cracovia Marathon", "Cracow", "2024.05.15", 60.00, "Description 2", "public/img/run1.jpeg"),
+);
+?>
+ 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +25,7 @@
             <img class="header-img" src="public/img/running_girl.png" alt="main logo image">
             <h1 class="default-header-text">Pacepal</h1>
         </div>
-        <div class="default-nav-list">
+        <div class="default-nav-list">  
             <ul>
                 <li><a class="nav-link" href="#">Races Calendar</a></li>
                 <li><a class="nav-link" href="#">My Races</a></li>
@@ -41,50 +51,36 @@
                 <h2 class="default-smaller-header">Upcoming races</h2>
 
                 <div class="displayed-races-main-container light-gray-box-style">
-
+ 
+                    <?php foreach($races as $race): ?>
                     <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box">
-                        <img class="default-race-img" src="public/img/run1.jpeg" alt="race image">
-                        <h2 class="default-smaller-header race-calendar-header">Sample race title</h2>
+                        <img class="default-race-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
+                        <h2 class="default-smaller-header race-calendar-header"><?php echo $race->getRaceTitle(); ?></h2>
                         <div class="icon-text-container icon-text-container-1">
                             <img class="race-details-small-icon" src="public/img/location.png" alt="location icon">
-                            <p class="race-details-text">Rome</p>
+                            <p class="race-details-text"><?php echo $race->getRaceLocation(); ?></p>
                         </div>
                         <div class="icon-text-container icon-text-container-2">
                             <img class="race-details-small-icon" src="public/img/timetable.png" alt="date icon">
-                            <p class="race-details-text">30.01.2024</p>
+                            <p class="race-details-text"><?php echo $race->getRaceDate(); ?></p>
                         </div>
                         <div class="icon-text-container icon-text-container-3">
                             <img class="race-details-small-icon" src="public/img/tag.png" alt="price icon">
-                            <p class="race-details-text">40$</p> 
+                            <p class="race-details-text"><?php echo '$' . $race->getRacePrice(); ?></p> 
                         </div>
-                        <button class="blue-button smaller-button races-calendar-button" type="button">More</button>
+                        <form action="race_details" method="GET">
+                            <input type="hidden" name="race_id" value="<?php echo $race->getId(); ?>">
+                            <button class="blue-button smaller-button races-calendar-button" type="submit">More</button>
+                        </form>
                     </div>
-
-                    <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box">
-                        <img class="default-race-img" src="public/img/run1.jpeg" alt="race image">
-                        <h2 class="default-smaller-header race-calendar-header">Sample race title 2</h2>
-                        <div class="icon-text-container icon-text-container-1">
-                            <img class="race-details-small-icon" src="public/img/location.png" alt="location icon">
-                            <p class="race-details-text">Cracow</p>
-                        </div>
-                        <div class="icon-text-container icon-text-container-2">
-                            <img class="race-details-small-icon" src="public/img/timetable.png" alt="date icon">
-                            <p class="race-details-text">28.07.2024</p>
-                        </div>
-                        <div class="icon-text-container icon-text-container-3">
-                            <img class="race-details-small-icon" src="public/img/tag.png" alt="price icon">
-                            <p class="race-details-text">35$</p> 
-                        </div>
-                        <button class="blue-button smaller-button races-calendar-button" type="button">More</button>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-
+            </div>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Pacepal. All rights reserved.</p>
     </footer>
-
 </body>
 </html>

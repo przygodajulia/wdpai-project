@@ -236,6 +236,9 @@
         text-align: left;
         margin-left: 0.4rem;
     }
+    .messages {
+        text-align: center;
+    }
     /* ------------------navigation and headers-------------------*/
     .header-img {
         width: 5rem;

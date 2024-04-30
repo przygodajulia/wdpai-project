@@ -28,33 +28,26 @@
     <main>
         <div class="race-details-main-container dark-gray-box-style gray-mobile-box">
             <div class="smaller-padding-and-margin displayed-races-single-container">
-                <img class="race-details-smaller-img default-race-img" src="public/img/run1.jpeg" alt="race image">
-                <h2 class="default-smaller-header">Sample race title</h2>
+                <img class="race-details-smaller-img default-race-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
+                <h2 class="default-smaller-header"><?php echo $race->getRaceTitle(); ?></h2>
                 <div class="icon-text-container">
                     <img class="race-details-small-icon" src="public/img/location.png" alt="location icon">
-                    <p class="race-details-text">Rome</p>
+                    <p class="race-details-text"><?php echo $race->getRaceLocation(); ?></p>
                 </div>
                 <div class="icon-text-container">
                     <img class="race-details-small-icon" src="public/img/timetable.png" alt="date icon">
-                    <p class="race-details-text">30.01.2024</p>
+                    <p class="race-details-text"><?php echo $race->getRaceDate(); ?></p>
                 </div>
                 <div class="icon-text-container">
                     <img class="race-details-small-icon" src="public/img/tag.png" alt="price icon">
-                    <p class="race-details-text">40$</p> 
+                    <p class="race-details-text"><?php echo '$' . $race->getRacePrice(); ?></p> 
                 </div>
                 <button class="smaller-race-details-button blue-button" type="button">Sign Up!</button>
             </div>
             <div class="race-details-add-description">
                 <h2 class="default-smaller-header">Details</h2>
                 <p class="race-details-paragraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. 
-                Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. 
-                Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. 
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-
-
-                In sit amet felis malesuada, feugiat purus eget, varius magna. Nulla lacinia justo ac nulla ullamcorper, nec venenatis risus tempor. Donec nec justo rutrum, dignissim mauris in,
-                hendrerit justo. Donec ornare libero sed arcu laoreet, sed semper felis rutrum.
+                    <?php echo $race->getRaceDescription(); ?>
                 </p>
             </div>
         </div>
