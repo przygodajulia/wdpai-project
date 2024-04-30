@@ -24,7 +24,17 @@
             <div class=" single-login-form single-login-form-style single-login-form-1">
                 <img class="login-icon" src="public/img/sign-in.png" alt="sign in icon">
                 <h2 class="simple-login-header">Welcome!</h2>
-                <form>
+                <form action="login" method="POST">
+                    <div class="messages">
+                        <?php if(isset($messages))
+                        {
+                            foreach ($messages as $message)
+                            {
+                                echo $message;
+                            }
+                        } 
+                        ?>
+                    </div>
                     <input name="email" type="text" placeholder="E-mail">
                     <input name="password" type="password" placeholder="Password">
                     <button type="submit" class="blue-button">Login</button>
