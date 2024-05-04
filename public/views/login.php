@@ -26,9 +26,9 @@
                 <h2 class="simple-login-header">Welcome!</h2>
                 <form action="login" method="POST">
                     <div class="messages">
-                        <?php if(isset($messages))
+                        <?php if(isset($loginMessages))
                         {
-                            foreach ($messages as $message)
+                            foreach ($loginMessages as $message)
                             {
                                 echo $message;
                             }
@@ -44,10 +44,21 @@
             <div class=" single-login-form single-login-form-style single-login-form-2">
                 <img class="login-icon" src="public/img/user.png" alt="user icon">
                 <h2 class="simple-login-header">Create account!</h2>
-                <form>
-                    <input name="full name" type="text" placeholder="Full name">
+                <form action="register" method="POST">
+                    <div class="messages">
+                        <?php if(isset($registerMessages))
+                        {
+                            foreach ($registerMessages as $message)
+                            {
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <input name="fullName" type="text" placeholder="Full name">
                     <input name="email" type="text" placeholder="E-mail">
                     <input name="password" type="password" placeholder="Password">
+                    <input name="location" type="text" placeholder="Location">
                     <button type="submit" class="blue-button">Create</button>
                 </form>
             </div>

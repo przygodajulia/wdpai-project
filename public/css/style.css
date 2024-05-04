@@ -287,7 +287,7 @@
     }
     .yellow-button {
         background-color: #F9B872;
-        font-family: Raleway;
+        font-family: Raleway, sans-serif;
         font-size: 1rem;
         color: white;
         font-weight: bold;
@@ -378,20 +378,43 @@
     }
     /* -----------------race details screen---------------------*/
     .race-details-smaller-img {
-        width: 30%;
-        height: 80%;
         border-radius: 15px;
         justify-self: center;
         margin: 0.6rem;
 
     }
+    .race-details-header {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+        margin: 1.6rem 0 0 0.6rem;
+        font-weight: 500;
+        align-self: start;
+    }
+    .race-details-icon-text-1 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .race-details-icon-text-2 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .race-details-icon-text-3 {
+        grid-column: 2;
+        grid-row: 4;
+    }
     .smaller-padding-and-margin {
         padding: 0;
         margin-left: 0;
     }
+    .race-details-form {
+        grid-column: 4;
+        grid-row: 1;
+        justify-self: end;
+    }
     .smaller-race-details-button {
         margin: 0.7rem;
-        width: 15%;
+        width: 50%;
     }
     .race-details-paragraph {
         margin-left: 0.4rem;
