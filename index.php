@@ -6,12 +6,14 @@ $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url( $path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
-Routing::get('races_calendar', 'DefaultController');
-Routing::get('race_details', 'RaceCalendarController');
+Routing::get('my_account', 'UserController');
+Routing::get('sign_up', 'RacesController');
+Routing::get('races', 'RacesController');
+Routing::get('my_races', 'RacesController');
+Routing::get('race_details', 'RacesController');
 
 Routing::post('login', 'SecurityController');
+Routing::post('register', 'SecurityController');
 
-var_dump($path);
-var_dump(Routing::$routes);
 
 Routing::run($path);

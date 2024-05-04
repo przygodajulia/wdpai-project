@@ -17,9 +17,9 @@
         </div>
         <div class="default-nav-list">
             <ul>
-                <li><a class="nav-link" href="#">Races Calendar</a></li>
-                <li><a class="nav-link" href="#">My Races</a></li>
-                <li><a class="nav-link" href="#">My Account</a></li>
+                <li><a class="nav-link" href="races">Races Calendar</a></li>
+                <li><a class="nav-link" href="my_races">My Races</a></li>
+                <li><a class="nav-link" href="my_account">My Account</a></li>
             </ul>
         </div>
         <img class="mobile-menu-icon" src="public/img/menu.png" alt="menu icon">
@@ -29,20 +29,22 @@
         <div class="my-account-main-container my-account-mobile-box">
             <div class="my-account-header-container">
                 <img class="my-account-icon" src="public/img/teamwork.png" alt="user icon">
-                <h2 class="my-account-name-header-mobile">John Doe</h2>
+                <h2 class="my-account-name-header-mobile"><?php echo $currentUser->getName() . ' ' . $currentUser->getSurname(); ?></h2>
             </div>
             <div class="my-account-user-data-container light-gray-box-style my-account-form">
-                <h2 class="my-account-name-header-desktop">John Doe</h2>
+                <h2 class="my-account-name-header-desktop"><?php echo $currentUser->getName() . ' ' . $currentUser->getSurname(); ?></h2>
                 <div class="separator"></div>
                 <form class="my-account-form">
                     <h3 class="my-account-header">Email</h3>
-                    <input name="email" type="text" placeholder="john.doe@gmail.com">
+                    <input name="email" type="text" placeholder="<?php echo $currentUser->getEmail(); ?>" readonly>
                     <h3 class="my-account-header">Location</h3>
-                    <input name="location" type="text" placeholder="London">
-                    <h3 class="my-account-header">Gender</h3>
-                    <input name="gender" type="text" placeholder="Male">
-                    <h3 class="my-account-header">Age</h3>
-                    <input name="age" type="text" placeholder="45">
+                    <input name="location" type="text" placeholder="<?php echo $currentUser->getLocation(); ?>" readonly>
+                    <h3 class="my-account-header">Password</h3>
+                    <input name="password" type="text" placeholder="*****" readonly>
+<!--//                    <h3 class="my-account-header">Gender</h3>-->
+<!--/*                    <input name="gender" type="text" placeholder="--><?php //echo $additionalUserData->getGender(); ?><!--">*/-->
+<!--//                    <h3 class="my-account-header">Age</h3>-->
+<!--/*                    <input name="age" type="text" placeholder="--><?php //echo $additionalUserData->getGender(); ?><!--">*/-->
                     <button type="submit" class="blue-button my-account-button my-account-button-2">Log out</button>
                 </form>
             </div>
