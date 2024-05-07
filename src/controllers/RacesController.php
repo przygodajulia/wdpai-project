@@ -19,7 +19,9 @@ class RacesController extends AppController
     public function races()
     {
         $races = $this->raceRepository->getRaces();
-        $this->render('races', ['races' => $races]);
+        $distances = $this->raceRepository->getAllDistances();
+        $locations = $this->raceRepository->getAllLocations();
+        $this->render('races', ['races' => $races, 'distances' => $distances, 'locations' => $locations]);
     }
 
     public function race_details()

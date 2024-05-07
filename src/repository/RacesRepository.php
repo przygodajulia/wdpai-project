@@ -23,6 +23,7 @@ class RacesRepository extends Repository
                 $race['date'],
                 $race['price'],
                 $race['description'],
+                $race['distance'],
                 $race['imageurl']
             );
         }
@@ -49,6 +50,7 @@ class RacesRepository extends Repository
             $race['date'],
             $race['price'],
             $race['description'],
+            $race['distance'],
             $race['imageurl']
         );
     }
@@ -69,11 +71,28 @@ class RacesRepository extends Repository
                 $race['date'],
                 $race['price'],
                 $race['description'],
+                $race['distance'],
                 $race['imageurl']
             );
         }
 
         return $races;
+
+    }
+
+    public function getAllDistances()
+    {
+        $stmt = $this->database->connect()->prepare('SELECT DISTINCT distance FROM races;');
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    public function getAllLocations()
+    {
+        $stmt = $this->database->connect()->prepare('SELECT DISTINCT location FROM races;');
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 

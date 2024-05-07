@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/races_filters.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,8 +33,18 @@
                 <h2 class="default-smaller-header">Filters</h2>
                 <div class="box-filters-race-calendar light-gray-box-style gray-mobile-box">
                     <button class="big-purple-button" type="button">Dates</button>
-                    <button class="big-purple-button" type="button">Distance</button>
-                    <button class="big-purple-button" type="button">Location</button>
+                    <button class="big-purple-button" type="button" id="filter-distance">Distance</button>
+                    <div class="distance-options">
+                        <?php foreach ($distances as $distance):?>
+                            <button class="distance-option" type="button"><?php echo ucfirst($distance['distance']);?></button>
+                        <?php endforeach; ?>
+                    </div>
+                    <button class="big-purple-button" type="button" id="filter-location">Location</button>
+                    <div class="location-options">
+                        <?php foreach ($locations as $location):?>
+                            <button class="location-option" type="button"><?php echo $location['location'];?></button>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
 
@@ -43,9 +54,10 @@
                 <div class="displayed-races-main-container light-gray-box-style">
 
                     <section class="races">
- 
-                        <?php foreach ($races as $race): ?>
-                            <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box">
+
+                        <?php foreach ($races as $race):?>
+                            <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box" data-distance="<?php echo $race->getDistance(); ?>"
+                                 data-location="<?php echo $race->getRaceLocation(); ?>">
                                 <img class="default-race-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
                                 <h2 class="default-smaller-header race-calendar-header"><?php echo $race->getRaceTitle(); ?></h2>
                                 <div class="icon-text-container icon-text-container-1">
