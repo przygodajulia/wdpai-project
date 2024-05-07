@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/validate_fields.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,7 @@
                 </form>
             </div>
 
-            <div class=" single-login-form single-login-form-style single-login-form-2">
+            <div class="single-login-form single-login-form-style single-login-form-2">
                 <img class="login-icon" src="public/img/user.png" alt="user icon">
                 <h2 class="simple-login-header">Create account!</h2>
                 <form action="register" method="POST">

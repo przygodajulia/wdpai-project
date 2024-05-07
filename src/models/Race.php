@@ -8,6 +8,7 @@ class Race
     private $raceDate;
     private $racePrice;
     private $raceDescription;
+    private $raceDistance;
     private $imagePath;
 
     public function __construct(
@@ -17,6 +18,7 @@ class Race
         string $raceDate, 
         float $racePrice, 
         string $raceDescription,
+        string $raceDistance,
         string $imagePath
     ){
         $this->id = $id;
@@ -25,6 +27,7 @@ class Race
         $this->raceDate = $raceDate;
         $this->racePrice = $racePrice;
         $this->raceDescription = $raceDescription;
+        $this->raceDistance = $raceDistance;
         $this->imagePath = $imagePath;
     }
 
@@ -56,6 +59,9 @@ class Race
     public function getRaceDescription(): string 
     {
         return $this->raceDescription;
+    }
+    public function getDistance(): string {
+        return $this->raceDistance;
     }
 
     public function getImagePath(): string 
