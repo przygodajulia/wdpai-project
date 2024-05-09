@@ -32,17 +32,22 @@
             <div class="filtres-races">
                 <h2 class="default-smaller-header">Filters</h2>
                 <div class="box-filters-race-calendar light-gray-box-style gray-mobile-box">
-                    <button class="big-purple-button" type="button">Dates</button>
+                    <button class="big-purple-button" type="button" id="filter-dates">Dates</button>
+                    <div class="date-options filter-options">
+                        <?php foreach ($months as $month):?>
+                            <button class="date-option filter-option" type="button"><?php echo $month;?></button>
+                        <?php endforeach; ?>
+                    </div>
                     <button class="big-purple-button" type="button" id="filter-distance">Distance</button>
-                    <div class="distance-options">
+                    <div class="distance-options filter-options">
                         <?php foreach ($distances as $distance):?>
-                            <button class="distance-option" type="button"><?php echo ucfirst($distance['distance']);?></button>
+                            <button class="distance-option filter-option" type="button"><?php echo ucfirst($distance['distance']);?></button>
                         <?php endforeach; ?>
                     </div>
                     <button class="big-purple-button" type="button" id="filter-location">Location</button>
-                    <div class="location-options">
+                    <div class="location-options filter-options">
                         <?php foreach ($locations as $location):?>
-                            <button class="location-option" type="button"><?php echo $location['location'];?></button>
+                            <button class="location-option filter-option" type="button"><?php echo $location['location'];?></button>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -57,7 +62,7 @@
 
                         <?php foreach ($races as $race):?>
                             <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box" data-distance="<?php echo $race->getDistance(); ?>"
-                                 data-location="<?php echo $race->getRaceLocation(); ?>">
+                                 data-location="<?php echo $race->getRaceLocation(); ?>" data-date="<?php echo $race->getMonth(); ?>">
                                 <img class="default-race-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
                                 <h2 class="default-smaller-header race-calendar-header"><?php echo $race->getRaceTitle(); ?></h2>
                                 <div class="icon-text-container icon-text-container-1">

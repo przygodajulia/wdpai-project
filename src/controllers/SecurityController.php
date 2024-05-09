@@ -34,9 +34,10 @@ class SecurityController extends AppController
             return $this->render('login', ['loginMessages' => ['User with this email not exist!']]);
         }
 
-        if ($user->getPassword() !== $password) {
-            return $this->render('login', ['loginMessages' => ['Wrong password!']]);
+        if (!$user || !password_verify($password, $user->getPassword())) {
+            return $this->render('login', ['loginMessages' => ['Invalid email or password.']]);
         }
+
 
         // TODO -> is this the correct place to start session
         session_start();
@@ -46,10 +47,10 @@ class SecurityController extends AppController
         header("Location: {$url}/races");
     }
 
-    public function register()
+    public function register($view = 'login')
     {
         if (!$this->isPost()) {
-            return $this->render('login');
+            return $this->render($view);
         }
 
         $nameParts = explode(" ", $_POST['fullName']);
@@ -58,16 +59,45 @@ class SecurityController extends AppController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $location = $_POST['location'];
+        $emailExists = $this->userRepository->checkEmailExists($email);
 
-        // TODO -> remove user ID from PHP class?
-        $user = new User(0, $email, $password, $name, $surname, $location);
+        // Validate data before adding user
+        if (empty($name) || empty($surname) || empty($email) || empty($password) || empty($location)) {
+            return $this->render($view, ['registerMessages' => ['Please fill in all fields.']]);
+        }
 
+        if (count($nameParts) < 2) {
+            return $this->render($view, ['registerMessages' => ['Please provide both name and surname.']]);
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->render($view, ['registerMessages' => ['Invalid email format.']]);
+        }
+
+        if (strlen($password) < 5) {
+            return $this->render($view, ['registerMessages' => ['Password must be at least 5 characters long.']]);
+        }
+        if ($emailExists) {
+            return $this->render($view, ['registerMessages' => ['User with this email already exists.']]);
+        }
+
+        // Password hashing
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $user = new User(0, $email, $hashedPassword, $name, $surname, $location);
         $this->userRepository->addUser($user);
 
-        return $this->render('login', ['registerMessages' => ['You\'ve been succesfully registrated!']]);
-
-
-
+        return $this->render('login', ['registerMessages' => ['You\'ve been successfully registered!']]);
     }
+
+    public function register_mobile_1() {
+        return $this->render('register_mobile');
+    }
+
+    public function register_mobile_2()
+    {
+        return $this->register('register_mobile');
+    }
+
 
 }

@@ -33,7 +33,7 @@
                             {
                                 echo $message;
                             }
-                        } 
+                        }
                         ?>
                     </div>
                     <input name="email" type="text" placeholder="E-mail">
@@ -42,7 +42,7 @@
                 </form>
             </div>
 
-            <div class="single-login-form single-login-form-style single-login-form-2">
+            <div class="single-login-form single-login-form-style single-login-form-2 js-validation-fields">
                 <img class="login-icon" src="public/img/user.png" alt="user icon">
                 <h2 class="simple-login-header">Create account!</h2>
                 <form action="register" method="POST">
@@ -65,8 +65,10 @@
             </div>
 
             <div class="mobile-additional-login-page">
-                <p class="create-subtitle">If you don't have an account yet</p>
-                <button type="button" class="blue-button bigger-button-size">Create</button>
+                <form action="register_mobile_1" method="GET">
+                    <p class="create-subtitle">If you don't have an account yet</p>
+                    <button type="submit" class="blue-button bigger-button-size">Create</button>
+                </form>
             </div>
 
         </div>
