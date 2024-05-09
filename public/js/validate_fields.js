@@ -1,4 +1,4 @@
-const form = document.querySelector(".single-login-form-2");
+const form = document.querySelector(".js-validation-fields");
 const emailInput = form.querySelector('input[name="email"]');
 const fullNameInput = form.querySelector('input[name="fullName"]');
 const passwordInput = form.querySelector('input[name="password"]');

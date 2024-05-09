@@ -68,4 +68,30 @@ class Race
     {
         return $this->imagePath;
     }
+
+    public function getMonth(): string
+    {
+        // Extracting the month from the stored date
+        $dateParts = explode('.', $this->raceDate);
+        $monthNumber = (int) ltrim($dateParts[1], '0');
+
+        // Converting month number to full name
+        $monthNames = [
+            1 => 'January',
+            2 => 'February',
+            3 => 'March',
+            4 => 'April',
+            5 => 'May',
+            6 => 'June',
+            7 => 'July',
+            8 => 'August',
+            9 => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December'
+        ];
+
+        return $monthNames[$monthNumber];
+    }
+
 }

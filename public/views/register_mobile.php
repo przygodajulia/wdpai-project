@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/validate_fields.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,13 +22,24 @@
     <main>
         <div class="login-forms-main-container">
 
-            <div class=" single-login-form single-login-form-style single-login-form-1">
+            <div class=" single-login-form single-login-form-style single-login-form-1 js-validation-fields">
                 <img class="login-icon" src="public/img/user.png" alt="user icon">
                 <h2 class="simple-login-header">Create account!</h2>
-                <form>
-                    <input name="full name" type="text" placeholder="Full name">
+                <form action="register_mobile_2" method="POST">
+                    <div class="messages">
+                        <?php if(isset($registerMessages))
+                        {
+                            foreach ($registerMessages as $message)
+                            {
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <input name="fullName" type="text" placeholder="Full name">
                     <input name="email" type="text" placeholder="E-mail">
                     <input name="password" type="password" placeholder="Password">
+                    <input name="location" type="text" placeholder="Location">
                     <button type="submit" class="blue-button">Create</button>
                 </form>
             </div>

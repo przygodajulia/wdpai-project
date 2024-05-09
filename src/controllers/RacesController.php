@@ -18,10 +18,14 @@ class RacesController extends AppController
 
     public function races()
     {
+        $months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
         $races = $this->raceRepository->getRaces();
         $distances = $this->raceRepository->getAllDistances();
         $locations = $this->raceRepository->getAllLocations();
-        $this->render('races', ['races' => $races, 'distances' => $distances, 'locations' => $locations]);
+        $this->render('races', ['races' => $races, 'distances' => $distances, 'locations' => $locations, 'months'=>$months]);
     }
 
     public function race_details()
