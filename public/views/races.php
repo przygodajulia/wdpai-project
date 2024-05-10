@@ -18,7 +18,7 @@
         </div>
         <div class="default-nav-list">  
             <ul>
-                <li><a class="nav-link" href="races">Races Calendar</a></li>
+                <li><a class="nav-link mark-current" href="races">Races Calendar</a></li>
                 <li><a class="nav-link" href="my_races">My Races</a></li>
                 <li><a class="nav-link" href="my_account">My Account</a></li>
             </ul>
@@ -31,7 +31,7 @@
 
             <div class="filtres-races">
                 <h2 class="default-smaller-header">Filters</h2>
-                <div class="box-filters-race-calendar light-gray-box-style gray-mobile-box">
+                <div class="box-filters-race-calendar light-gray-box-style gray-mobile-box-filter">
                     <button class="big-purple-button" type="button" id="filter-dates">Dates</button>
                     <div class="date-options filter-options">
                         <?php foreach ($months as $month):?>
@@ -63,14 +63,14 @@
                         <?php foreach ($races as $race):?>
                             <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box" data-distance="<?php echo $race->getDistance(); ?>"
                                  data-location="<?php echo $race->getRaceLocation(); ?>" data-date="<?php echo $race->getMonth(); ?>">
-                                <img class="default-race-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
+                                <img class="default-race-img races-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
                                 <h2 class="default-smaller-header race-calendar-header"><?php echo $race->getRaceTitle(); ?></h2>
                                 <div class="icon-text-container icon-text-container-1">
                                     <img class="race-details-small-icon" src="public/img/location.png" alt="location icon">
                                     <p class="race-details-text"><?php echo $race->getRaceLocation(); ?></p>
                                 </div>
                                 <div class="icon-text-container icon-text-container-2">
-                                    <img class="race-details-small-icon" src="public/img/timetable.png" alt="date icon">
+                                    <img class="race-details-small-icon mobile-races-date-icon" src="public/img/timetable.png" alt="date icon">
                                     <p class="race-details-text"><?php echo $race->getRaceDate(); ?></p>
                                 </div>
                                 <div class="icon-text-container icon-text-container-3">

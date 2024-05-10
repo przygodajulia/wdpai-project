@@ -17,7 +17,7 @@
         </div>
         <div class="default-nav-list">
             <ul>
-                <li><a class="nav-link" href="races">Races Calendar</a></li>
+                <li><a class="nav-link mark-current" href="races">Races Calendar</a></li>
                 <li><a class="nav-link" href="my_races">My Races</a></li>
                 <li><a class="nav-link" href="my_account">My Account</a></li>
             </ul>
@@ -37,7 +37,7 @@
             ?>
         </div>
         <div class="race-details-main-container dark-gray-box-style gray-mobile-box">
-            <div class="smaller-padding-and-margin displayed-races-single-container">
+            <div class="smaller-padding-and-margin displayed-races-single-container no-shadow">
                 <img class="race-details-smaller-img default-race-img" src="<?php echo $race->getImagePath(); ?>" alt="race image">
                 <h2 class="default-smaller-header race-details-header"><?php echo $race->getRaceTitle(); ?></h2>
                 <div class="icon-text-container race-details-icon-text-1">
@@ -45,17 +45,16 @@
                     <p class="race-details-text"><?php echo $race->getRaceLocation(); ?></p>
                 </div>
                 <div class="icon-text-container race-details-icon-text-2">
-                    <img class="race-details-small-icon" src="public/img/timetable.png" alt="date icon">
+                    <img class="race-details-small-icon mobile-races-date-icon" src="public/img/timetable.png" alt="date icon">
                     <p class="race-details-text"><?php echo $race->getRaceDate(); ?></p>
                 </div>
                 <div class="icon-text-container race-details-icon-text-3">
                     <img class="race-details-small-icon" src="public/img/tag.png" alt="price icon">
                     <p class="race-details-text"><?php echo '$' . $race->getRacePrice(); ?></p> 
                 </div>
-<!--                <button class="smaller-race-details-button blue-button" type="button">Sign Up!</button>-->
                     <form class="race-details-form" action="sign_up" method="GET">
                         <input type="hidden" name="race_id" value="<?php echo $race->getId(); ?>">
-                        <button class="smaller-race-details-button blue-button" type="submit">Sign Up!</button>
+                        <button class="smaller-race-details-button blue-button race-details-button" type="submit">Sign Up!</button>
                     </form>
             </div>
             <div class="race-details-add-description">

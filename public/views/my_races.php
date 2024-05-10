@@ -19,7 +19,7 @@
     <div class="default-nav-list">
         <ul>
             <li><a class="nav-link" href="races">Races Calendar</a></li>
-            <li><a class="nav-link" href="my_races">My Races</a></li>
+            <li><a class="nav-link mark-current" href="my_races">My Races</a></li>
             <li><a class="nav-link" href="my_account">My Account</a></li>
         </ul>
     </div>

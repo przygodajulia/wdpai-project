@@ -19,7 +19,7 @@
             <ul>
                 <li><a class="nav-link" href="races">Races Calendar</a></li>
                 <li><a class="nav-link" href="my_races">My Races</a></li>
-                <li><a class="nav-link" href="my_account">My Account</a></li>
+                <li><a class="nav-link mark-current" href="my_account">My Account</a></li>
             </ul>
         </div>
         <img class="mobile-menu-icon" src="public/img/menu.png" alt="menu icon">
