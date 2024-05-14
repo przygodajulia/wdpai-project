@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/show_menu.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +24,14 @@
             </ul>
         </div>
         <img class="mobile-menu-icon" src="public/img/menu.png" alt="menu icon">
+        <div class="mobile-menu-container">
+            <ul>
+                <li><a href="races">> Races Calendar</a></li>
+                <li><a href="my_races">> My Races</a></li>
+                <li><a href="my_account">> My Account</a></li>
+                <li><a href="races">> Close</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
