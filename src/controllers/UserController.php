@@ -20,7 +20,14 @@ class UserController extends AppController
 
         session_start();
         $userId = $_SESSION['userid'];
+
+        if ($userId == null)
+        {
+            return $this->render('info_message', ['message' => 'Please log in first!']);
+        }
+
         $currentUser = $this->userRepository->getUserById($userId);
+
         return $this->render('my_account', ["currentUser" => $currentUser]);
 
     }

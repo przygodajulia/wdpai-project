@@ -89,5 +89,20 @@ class UserRepository extends Repository
         ]);
     }
 
+    public function isAdmin(int $userid)
+    {
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM admins WHERE userid = :userid');
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_STR);
+        $stmt->execute();
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$admin) {
+            return false;
+        }
+        return true;
+
+    }
+
 
 }

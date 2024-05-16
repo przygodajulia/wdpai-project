@@ -3,6 +3,8 @@
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Race.php';
+require_once __DIR__.'/../models/RaceResult.php';
+require_once __DIR__.'/../models/DisplayedResult.php';
 
 class RacesRepository extends Repository
 {
@@ -96,6 +98,50 @@ class RacesRepository extends Repository
 
     }
 
+    public function getFinishedRaces()
+    {
+        // Get all races as objects
+        $allRaces = $this->getRaces();
+
+        // Get the current date
+        $currentDate = new DateTime();
+
+        // Filter the races to get just the finished ones
+        $finishedRaces = array_filter($allRaces, function($race) use ($currentDate) {
+            $raceDate = DateTime::createFromFormat('Y-m-d', $race->getRaceDate());
+            return $raceDate <= $currentDate;
+        });
+
+        return $finishedRaces;
+    }
+
+    public function getRaceResults($raceId)
+    {
+        $stmt = $this->database->connect()->prepare(
+            'SELECT r.title as title, u.name as name, u.surname as surname, res.time as time_str, res.place as place
+        FROM race_results res 
+        INNER JOIN users u ON res.userid = u.userid
+        INNER JOIN races r ON res.raceid = r.raceid
+        WHERE res.raceid = ?
+        ORDER BY res.place DESC;');
+        $stmt->execute([$raceId]);
+
+        $results = [];
+
+        while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = new DisplayedResult(
+                $result['title'],
+                $result['name'],
+                $result['surname'],
+                $result['time_str'],
+                $result['place']
+            );
+        }
+
+        return $results;
+    }
+
+
     public function addRegistration(int $userId, int $raceId)
     {
 
@@ -117,6 +163,20 @@ class RacesRepository extends Repository
             return true;
         }
 
+    }
+
+    public function addRaceResult($raceResult)
+    {
+        $stmt = $this->database->connect()->prepare('
+        INSERT INTO race_results (raceid, userid, time, place)
+        VALUES (?, ?, ?, ?)');
+
+        $stmt->execute([
+            $raceResult->getRaceid(),
+            $raceResult->getUserId(),
+            $raceResult->getTime(),
+            $raceResult->getPlace()
+        ]);
     }
 
 }

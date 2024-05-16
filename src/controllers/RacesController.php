@@ -18,6 +18,7 @@ class RacesController extends AppController
 
     public function races()
     {
+        session_start();
         $months = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
@@ -50,6 +51,10 @@ class RacesController extends AppController
 
         session_start();
         $userId = $_SESSION['userid'];
+        if ($userId == null)
+        {
+            return $this->render('info_message', ['message' => 'Please log in first!']);
+        }
         $raceId = $_GET['race_id'];
 
         // add this to the new database table
@@ -76,8 +81,28 @@ class RacesController extends AppController
     {
         session_start();
         $userId = $_SESSION['userid'];
+
+        if ($userId == null)
+        {
+            return $this->render('info_message', ['message' => 'Please log in first!']);
+        }
+
         $registeredRaces = $this->raceRepository->getAllRaces($userId);
         $this->render("my_races", ['registeredRaces' => $registeredRaces]);
+
+    }
+
+    public function view_results()
+    {
+
+        $raceId = $_GET['race_id'];
+
+        // fetch records from database for the correspoding races
+        $results = $this->raceRepository->getRaceResults($raceId);
+
+
+        return $this->render("results", ['results' => $results]);
+
 
     }
 
