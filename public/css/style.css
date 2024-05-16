@@ -242,7 +242,7 @@
     .my-races-icon-text {
         grid-column: 1;
         grid-row: 2;
-        align-self: start;
+        align-self: center;
         justify-self: start;
         margin-left: 0;
     }
@@ -252,6 +252,14 @@
         margin-top: -0.4rem;
         grid-column: 2;
         grid-row: 2;
+    }
+    .my-races-form {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: center;
+    }
+    .my-races-results {
+        width: 80%;
     }
     /* -------------------my account screen-----------------------*/
     .my-account-main-container {
@@ -291,6 +299,30 @@
         left: 50%;
         transform: translateX(-50%);
     } */
+    /* -------------------my account screen-----------------------*/
+    .admin-view-single-container {
+        display: grid;
+        width: 100%;
+        grid-template-rows: 20% 20% 60%;
+        border-bottom: 1px solid black;
+        align-items: start;
+        justify-items: start;
+    }
+    .admin-header {
+        grid-row: 1;
+        font-weight: 500;
+        text-align: center;
+    }
+    .admin-p {
+        grid-row: 2;
+    }
+    .admin-form {
+        grid-row: 3;
+        display: flex;
+    }
+    .admin-input {
+        margin-left: 0.2rem;
+    }
 
 
 
@@ -527,11 +559,17 @@
         grid-template-rows: 1fr 1fr;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         min-height: 20vh;
+        max-height: 20vh;
+
     }
     .my-races-img {
         grid-column: 1;
         grid-row: 1 / span 2;
         align-self: center;
+    }
+    .my-races-header {
+        grid-column: 2 span / 3;
+        grid-row: 1;
     }
     .my-races-small-icon {
         width: 20%;
@@ -547,6 +585,13 @@
         justify-self: end;
         grid-column: 3;
         grid-row: 1;
+    }
+    .my-races-form {
+        grid-column: 4;
+        grid-row: 1;
+    }
+    .my-races-results {
+        width: 80%;
     }
     /* -------------------my account screen-----------------------*/
     .my-account-name-header-mobile {
@@ -585,6 +630,31 @@
     }
     .my-account-button-2 {
         right: 0;
+    }
+
+    /* -------------------admin view screen-----------------------*/
+    .admin-view-single-container {
+        display: grid;
+        grid-template-columns: 30% 10% 60%;
+        border-bottom: 1px solid black;
+        align-items: center;
+        justify-items: start;
+    }
+    .admin-header {
+        grid-column: 1;
+        font-weight: 500;
+    }
+    .admin-p {
+        grid-column: 2;
+    }
+    .admin-form {
+        grid-column: 3;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .admin-button {
+        justify-self: center;
     }
 
 }
@@ -629,6 +699,18 @@ footer {
 }
 .mark-current {
     font-weight: bolder;
+}
+.info-mess-text {
+    text-align: center;
+    font-size: smaller;
+}
+.admin-input {
+    box-shadow: none;
+    background-color: #D9D9D9;
+}
+.admin-input {
+    font-family: Raleway;
+    border-radius: 15px;
 }
 /* --------------common elements - js formatting -----------------*/
 .filter-options {
@@ -804,6 +886,32 @@ input {
     font-weight: 500;
 }
 
+/* -------------------admin view screen----------------------*/
+.spacer-cell {
+    border-top: 1px solid #ccc; /* Add top border */
+    padding: 5px; /* Add padding for spacing */
+}
+
+.races-results {
+    width: 90%; /* Set width to 90% */
+    margin: 0 auto; /* Center the element horizontally */
+}
+
+table {
+    border-collapse: collapse; /* Collapse table borders */
+    width: 100%; /* Ensure table fills its container */
+    margin: 0 auto; /* Center the element horizontally */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Add borders to table cells */
+    padding: 8px; /* Add padding for spacing */
+    text-align: left; /* Align text to the left */
+}
+
+th {
+    background-color: #f2f2f2; /* Add background color to table header cells */
+}
 
 
 

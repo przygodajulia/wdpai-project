@@ -21,6 +21,9 @@
                 <li><a class="nav-link mark-current" href="races">Races Calendar</a></li>
                 <li><a class="nav-link" href="my_races">My Races</a></li>
                 <li><a class="nav-link" href="my_account">My Account</a></li>
+                <?php if ($_SESSION['isAdmin']): ?>
+                    <li><a class="nav-link" href="admin_view">Admin</a></li>
+                <?php endif; ?>
             </ul>
         </div>
         <img class="mobile-menu-icon" src="public/img/menu.png" alt="menu icon">
@@ -29,6 +32,9 @@
                 <li><a href="races">> Races Calendar</a></li>
                 <li><a href="my_races">> My Races</a></li>
                 <li><a href="my_account">> My Account</a></li>
+                <?php if ($_SESSION['isAdmin']): ?>
+                    <li><a href="admin_view">> Admin</a></li>
+                <?php endif; ?>
                 <li><a href="races">> Close</a></li>
             </ul>
         </div>

@@ -11,14 +11,20 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
-    public function my_races()
-    {
-        $this->render('my_races');
-    }
+//    public function my_races()
+//    {
+//        $this->render('my_races');
+//    }
+//
+//    public function race_details()
+//    {
+//        $this->render('race_details');
+//    }
+//
+//    public function info_message()
+//    {
+//        $this->render('info_message');
+//    }
 
-    public function race_details()
-    {
-        $this->render('race_details');
-    }
 
 }

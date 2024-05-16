@@ -22,14 +22,20 @@
             <li><a class="nav-link" href="races">Races Calendar</a></li>
             <li><a class="nav-link mark-current" href="my_races">My Races</a></li>
             <li><a class="nav-link" href="my_account">My Account</a></li>
+            <?php if ($_SESSION['isAdmin']): ?>
+                <li><a class="nav-link" href="admin_view">Admin</a></li>
+            <?php endif; ?>
         </ul>
     </div>
     <img class="mobile-menu-icon" src="public/img/menu.png" alt="menu icon">
     <div class="mobile-menu-container">
         <ul>
             <li><a href="races">> Races Calendar</a></li>
-            <li><a href="my_races">> My Races</a></li>
+            <li><a  class="mark-current" href="my_races">> My Races</a></li>
             <li><a href="my_account">> My Account</a></li>
+            <?php if ($_SESSION['isAdmin']): ?>
+                <li><a href="admin_view">> Admin</a></li>
+            <?php endif; ?>
             <li><a href="my_races">> Close</a></li>
         </ul>
     </div>
@@ -67,6 +73,10 @@
                                 <img class="my-races-small-icon" src="public/img/checked.png" alt="race status icon">
                                 <p class="my-races-text">Finished</p>
                             </div>
+                            <form class="my-races-form" action="view_results" method="GET">
+                                <input type="hidden" name="race_id" value="<?php echo $race->getId(); ?>">
+                                <button class="blue-button my-races-results" type="submit">View results</button>
+                            </form>
                             <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
