@@ -23,7 +23,7 @@
         text-align: left;
         margin-left: 0.8rem;
     }
-    .filtres-races {
+    .filters-races {
         width: 90%;
         text-align: left;
     }
@@ -81,10 +81,6 @@
         align-self: center;
     }
     /* --------------------------forms----------------------------*/
-        /* form {
-        height: 50%;
-        width: 80%;
-    } */
     /*--------------------------buttons---------------------------*/
     .bigger-button-size {
         width: 80%;
@@ -97,7 +93,7 @@
     }
     .blue-button {
         background-color: #56A9D8;
-        font-family: Raleway;
+        font-family: Raleway, sans-serif;
         font-size: 1rem;
         color: white;
         font-weight: bold;
@@ -110,7 +106,7 @@
     }
     .yellow-button {
         background-color: #F9B872;
-        font-family: Raleway;
+        font-family: Raleway, sans-serif;
         font-size: 1rem;
         color: white;
         font-weight: bold;
@@ -123,8 +119,7 @@
     }
     .smaller-button {
         width: 50%;
-        margin: 0;
-        margin-left: 2.5rem;
+        margin: 0 0 0 2.5rem;
     }
     /* ---------------------login screen--------------------------*/
     .login-forms-main-container {
@@ -162,6 +157,17 @@
         display: grid;
         grid-template-columns: 40% 60%;;
         grid-template-rows: 2fr 1fr 1fr;
+
+    }
+    .search-container {
+        width: 90%;
+        text-align: left;
+    }
+    /*.single-search-container {*/
+    /*    justify-content: center;*/
+    /*}*/
+    .search-input {
+        width: 85%;
 
     }
     .default-race-img {
@@ -293,12 +299,6 @@
     .my-account-form form {
         width: 100%;
     }
-    /* .my-account-button {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    } */
     /* -------------------my account screen-----------------------*/
     .admin-view-single-container {
         display: grid;
@@ -323,8 +323,6 @@
     .admin-input {
         margin-left: 0.2rem;
     }
-
-
 
 }
 
@@ -391,7 +389,8 @@
     }
     .blue-button {
         background-color: #56A9D8;
-        font-family: Raleway;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        font-family: Raleway, sans-serif;
         font-size: 1rem;
         color: white;
         font-weight: bold;
@@ -442,9 +441,20 @@
         height: 95%;
     }
     /* -----------------races calendar screen---------------------*/
-    .filtres-races {
+    .filters-races {
         width: 90%;
         text-align: left;
+    }
+    .search-container {
+        width: 90%;
+        text-align: left;
+    }
+    /*.single-search-container {*/
+    /*    justify-content: center;*/
+    /*}*/
+    .search-input {
+        width: 95%;
+
     }
     .displayed-races-single-container {
         display: grid;
@@ -659,16 +669,14 @@
 
 }
 
-
 /* --------------------common elements------------------------*/
 body, html {
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     background: #F7F9FA;
     margin: 0;
     width: 100%;
 }
 footer {
-    /* TODO - change footer behaviour*/
     position: fixed;
     bottom: 0;
     left: 0;
@@ -709,7 +717,7 @@ footer {
     background-color: #D9D9D9;
 }
 .admin-input {
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     border-radius: 15px;
 }
 /* --------------common elements - js formatting -----------------*/
@@ -735,7 +743,7 @@ footer {
     padding: 8px 16px;
     display: block;
     background-color: #56A9D8;
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-size: 1rem;
     color: white;
     font-weight: bold;
@@ -804,7 +812,7 @@ form {
 }
 input {
     background-color: #D9D9D9;
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-size: 1rem;
     padding: 0.5rem;
     margin: 0.5rem 1.2rem;
@@ -814,10 +822,9 @@ input {
 }
 /*--------------------------buttons-----------------------------*/
 .big-purple-button {
-    /*background-color: #B89EE1;*/
     background-color: #D9D9D9;
     text-align: center;
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     border-radius: 10px;
     font-weight: 600;
     border: 2px solid #B89EE1;
@@ -852,6 +859,7 @@ input {
     display: flex;
     justify-content: space-evenly;
 }
+
 /* -------------------my races screen-----------------------*/
 .my-races-img {
     width: 95%;
@@ -888,29 +896,29 @@ input {
 
 /* -------------------admin view screen----------------------*/
 .spacer-cell {
-    border-top: 1px solid #ccc; /* Add top border */
-    padding: 5px; /* Add padding for spacing */
+    border-top: 1px solid #ccc;
+    padding: 5px;
 }
 
 .races-results {
-    width: 90%; /* Set width to 90% */
-    margin: 0 auto; /* Center the element horizontally */
+    width: 90%;
+    margin: 0 auto;
 }
 
 table {
-    border-collapse: collapse; /* Collapse table borders */
-    width: 100%; /* Ensure table fills its container */
-    margin: 0 auto; /* Center the element horizontally */
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
 }
 
 th, td {
-    border: 1px solid #ddd; /* Add borders to table cells */
-    padding: 8px; /* Add padding for spacing */
-    text-align: left; /* Align text to the left */
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
 th {
-    background-color: #f2f2f2; /* Add background color to table header cells */
+    background-color: #f2f2f2;
 }
 
 
