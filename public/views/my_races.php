@@ -44,7 +44,7 @@
 <main>
     <div class="races-main-container">
 
-        <div class="filtres-races">
+        <div class="filters-races">
             <h2 class="default-smaller-header">Filters</h2>
             <div class="box-filters-race-calendar light-gray-box-style gray-mobile-box">
                 <button class="big-purple-button" type="button" id="filter-upcoming">Upcoming</button>

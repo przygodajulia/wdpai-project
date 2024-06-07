@@ -23,6 +23,7 @@ Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 Routing::post('register_mobile_2', 'SecurityController');
 Routing::post('upload', 'SecurityController');
+Routing::post('search', 'RacesController');
 
 
 

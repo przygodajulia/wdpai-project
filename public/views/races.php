@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script type="text/javascript" src="./public/js/races_filters.js" defer></script>
     <script type="text/javascript" src="./public/js/show_menu.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +45,14 @@
     <main>
         <div class="races-main-container">
 
-            <div class="filtres-races">
+            <div class="search-container">
+                <h2 class="default-smaller-header">Search</h2>
+                <div class="single-search-container light-gray-box-style gray-mobile-box-filter">
+                    <input type="text" placeholder="Search..." class="search-input">
+                </div>
+            </div>
+
+            <div class="filters-races">
                 <h2 class="default-smaller-header">Filters</h2>
                 <div class="box-filters-race-calendar light-gray-box-style gray-mobile-box-filter">
                     <button class="big-purple-button" type="button" id="filter-dates">Dates</button>
@@ -69,7 +77,7 @@
             </div>
 
             <div class="displayed-races">
-                <h2 class="default-smaller-header">Upcoming races</h2>
+                <h2 class="default-smaller-header">Races</h2>
 
                 <div class="displayed-races-main-container light-gray-box-style">
 
@@ -109,3 +117,25 @@
     </footer>
 </body>
 </html>
+
+<template id="race-template">
+    <div class="displayed-races-single-container dark-gray-box-style gray-mobile-box">
+        <img class="default-race-img races-img" src="" alt="race image">
+        <h2 class="default-smaller-header race-calendar-header">title</h2>
+        <div class="icon-text-container icon-text-container-1">
+            <img class="race-details-small-icon" src="public/img/location.png" alt="location icon">
+            <p class="race-details-text">location</p>
+        </div>
+        <div class="icon-text-container icon-text-container-2">
+            <img class="race-details-small-icon mobile-races-date-icon" src="public/img/timetable.png" alt="date icon">
+            <p class="race-details-text">date</p>
+        </div>
+        <div class="icon-text-container icon-text-container-3">
+            <img class="race-details-small-icon" src="public/img/tag.png" alt="price icon">
+            <p class="race-details-text">price</p>
+        </div>
+        <form action="race_details" method="GET">
+            <input type="hidden" name="race_id" value="">
+            <button class="blue-button smaller-button races-calendar-button" type="submit">More</button>
+        </form>
+</template>
