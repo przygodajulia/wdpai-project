@@ -72,9 +72,6 @@
     </div>
 </main>
 
-
-
-
 <footer>
     <p>&copy; 2024 Pacepal. All rights reserved.</p>
 </footer>

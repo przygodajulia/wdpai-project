@@ -18,7 +18,6 @@ Routing::get('logout', 'SecurityController');
 Routing::get('admin_view', 'SecurityController');
 Routing::get('view_results', 'RacesController');
 
-
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 Routing::post('register_mobile_2', 'SecurityController');

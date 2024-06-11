@@ -148,7 +148,6 @@ class SecurityController extends AppController
 
     public function upload()
     {
-        // TODO change to get finished races
         $finishedRaces = $this->racesRepository->getFinishedRaces();
 
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validateType($_FILES['file']))

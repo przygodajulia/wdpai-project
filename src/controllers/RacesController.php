@@ -95,7 +95,9 @@ class RacesController extends AppController
     public function view_results()
     {
 
+        session_start();
         $raceId = $_GET['race_id'];
+        $userId = $_SESSION['userid'];
 
         // fetch records from database for the correspoding races
         $results = $this->raceRepository->getRaceResults($raceId);
